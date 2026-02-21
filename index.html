@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ajmin Fayaz | UI/UX Designer Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
+        
+        :root {
+            --bg-color: #0a0a0a;
+            --accent-color: #d4af37;
+            --card-bg: #161616;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: var(--bg-color);
+            color: #ffffff;
+            scroll-behavior: smooth;
+        }
+
+        .gradient-text {
+            background: linear-gradient(45deg, #fff, #a1a1a1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .project-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+
+        .skill-tag {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            transition: all 0.3s ease;
+        }
+
+        .skill-tag:hover {
+            background: var(--accent-color);
+            color: black;
+            border-color: var(--accent-color);
+        }
+
+        nav {
+            backdrop-filter: blur(10px);
+            background: rgba(10, 10, 10, 0.8);
+        }
+    </style>
+</head>
+<body class="overflow-x-hidden">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 border-b border-white/10">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="text-xl font-bold tracking-tighter">AF<span class="text-yellow-500">.</span></div>
+            <div class="hidden md:flex space-x-8 text-sm font-medium opacity-70">
+                <a href="#home" class="hover:opacity-100 transition">Home</a>
+                <a href="#work" class="hover:opacity-100 transition">Work</a>
+                <a href="#skills" class="hover:opacity-100 transition">Expertise</a>
+                <a href="#contact" class="hover:opacity-100 transition">Contact</a>
+            </div>
+            <a href="mailto:fayazajmin@gmail.com" class="px-5 py-2 bg-white text-black text-sm font-bold rounded-full hover:bg-yellow-500 transition">Hire Me</a>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="min-h-screen flex items-center pt-20">
+        <div class="max-w-7xl mx-auto px-6 grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-yellow-500 font-semibold mb-4 tracking-widest uppercase text-sm">UI/UX Designer</h2>
+                <h1 class="text-5xl md:text-7xl font-bold mb-6 leading-tight">
+                    Bridging <span class="gradient-text">Luxury Sensory</span> & Digital Interfaces.
+                </h1>
+                <p class="text-gray-400 text-lg mb-8 max-w-lg leading-relaxed">
+                    Strategic designer with 2+ years of experience building high-fidelity products. Specializing in dark-mode aesthetics and solving complex user behaviors.
+                </p>
+                <div class="flex space-x-4">
+                    <a href="#work" class="px-8 py-4 bg-yellow-600 text-white rounded-lg font-semibold hover:bg-yellow-500 transition shadow-lg shadow-yellow-900/20">View Projects</a>
+                    <a href="mailto:fayazajmin@gmail.com" class="px-8 py-4 border border-white/10 rounded-lg font-semibold hover:bg-white/5 transition flex items-center">
+                        <i class="fas fa-paper-plane mr-2"></i> Get in Touch
+                    </a>
+                </div>
+            </div>
+            <div class="relative flex justify-center">
+                <div class="absolute w-80 h-80 bg-yellow-600/10 rounded-full blur-3xl"></div>
+                <div class="w-80 h-80 rounded-full border-4 border-white/10 overflow-hidden relative z-10 grayscale hover:grayscale-0 transition duration-500">
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?fit=crop&w=800&q=80" alt="Ajmin Fayaz" class="w-full h-full object-cover">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Expertise Section -->
+    <section id="skills" class="py-24 bg-[#0d0d0d]">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-16">
+                <h3 class="text-3xl font-bold mb-4">Core Expertise</h3>
+                <div class="h-1 w-20 bg-yellow-500"></div>
+            </div>
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="p-8 bg-white/5 rounded-2xl border border-white/5">
+                    <i class="fas fa-layer-group text-3xl text-yellow-500 mb-6"></i>
+                    <h4 class="text-xl font-bold mb-4">Figma Mastery</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">Expertise in Auto Layout, Component Properties, and Variables for scalable design systems.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1 rounded-full text-xs">Auto Layout</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-xs">Design Systems</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-xs">Prototyping</span>
+                    </div>
+                </div>
+                <div class="p-8 bg-white/5 rounded-2xl border border-white/5">
+                    <i class="fas fa-brain text-3xl text-yellow-500 mb-6"></i>
+                    <h4 class="text-xl font-bold mb-4">Behavioral Design</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">Solving complex user issues like 'tab fatigue' and 'viewing fatigue' through strategic UX flows.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1 rounded-full text-xs">User Research</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-xs">Behavioral UX</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-xs">IA</span>
+                    </div>
+                </div>
+                <div class="p-8 bg-white/5 rounded-2xl border border-white/5">
+                    <i class="fas fa-palette text-3xl text-yellow-500 mb-6"></i>
+                    <h4 class="text-xl font-bold mb-4">Visual Strategy</h4>
+                    <p class="text-gray-400 text-sm leading-relaxed mb-6">Creating high-conversion dark-mode interfaces and premium sensory-driven digital experiences.</p>
+                    <div class="flex flex-wrap gap-2">
+                        <span class="skill-tag px-3 py-1 rounded-full text-xs">Dark Mode</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-xs">Visual Design</span>
+                        <span class="skill-tag px-3 py-1 rounded-full text-xs">Branding</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Work Section -->
+    <section id="work" class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex justify-between items-end mb-16">
+                <div>
+                    <h3 class="text-3xl font-bold mb-4">Featured Work</h3>
+                    <div class="h-1 w-20 bg-yellow-500"></div>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Project 1 -->
+                <div class="project-card group">
+                    <div class="aspect-video bg-zinc-900 rounded-2xl overflow-hidden mb-6 relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
+                            <div>
+                                <h4 class="text-2xl font-bold">A Unified Travel Experience</h4>
+                                <p class="text-yellow-500 font-medium">Solving "Tab Fatigue"</p>
+                            </div>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?auto=format&fit=crop&w=800&q=80" alt="Travel App" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-60">
+                    </div>
+                    <div class="px-2">
+                        <p class="text-gray-400 mb-4">A "Visual-First" platform with a unified navigation bar for Flights, Hotels, and Rentals. Features a linear booking flow to eliminate "sticker shock".</p>
+                    </div>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card group">
+                    <div class="aspect-video bg-zinc-900 rounded-2xl overflow-hidden mb-6 relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
+                            <div>
+                                <h4 class="text-2xl font-bold">Lofio Real Estate</h4>
+                                <p class="text-yellow-500 font-medium">Immersive Discovery</p>
+                            </div>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Lofio Real Estate" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-60">
+                    </div>
+                    <div class="px-2">
+                        <p class="text-gray-400 mb-4">High-trust platform for international buyers. Solves "Viewing Fatigue" through virtual tour integration and granular rating systems.</p>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card group">
+                    <div class="aspect-video bg-zinc-900 rounded-2xl overflow-hidden mb-6 relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
+                            <div>
+                                <h4 class="text-2xl font-bold">Upside Cinematic Booking</h4>
+                                <p class="text-yellow-500 font-medium">Cinema Environment UI</p>
+                            </div>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80" alt="Movie App" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-60">
+                    </div>
+                    <div class="px-2">
+                        <p class="text-gray-400 mb-4">Premium dark-mode ticketing app featuring a persistent "Anchor Summary" for real-time price updates on seats and snacks.</p>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card group">
+                    <div class="aspect-video bg-zinc-900 rounded-2xl overflow-hidden mb-6 relative">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
+                            <div>
+                                <h4 class="text-2xl font-bold">Choco Box</h4>
+                                <p class="text-yellow-500 font-medium">Artisanal E-commerce</p>
+                            </div>
+                        </div>
+                        <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=800&q=80" alt="Choco Box" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-60">
+                    </div>
+                    <div class="px-2">
+                        <p class="text-gray-400 mb-4">Translating luxury sensory experiences into digital. Features a Milk Cream & Cocoa palette with a 3-step distraction-free checkout.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-[#0d0d0d]">
+        <div class="max-w-3xl mx-auto px-6 text-center">
+            <h3 class="text-4xl font-bold mb-8">Let's build something <span class="text-yellow-500">immersive.</span></h3>
+            <p class="text-gray-400 mb-12">Currently open to new opportunities and collaborations in India or UAE (open to relocation).</p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                <a href="mailto:fayazajmin@gmail.com" class="p-8 bg-white/5 rounded-2xl border border-white/10 hover:border-yellow-500 transition block group">
+                    <i class="fas fa-envelope text-yellow-500 mb-4 text-2xl group-hover:scale-110 transition"></i>
+                    <p class="text-sm opacity-60 mb-2 uppercase tracking-widest font-bold">Email Me</p>
+                    <p class="text-xl font-bold">fayazajmin@gmail.com</p>
+                </a>
+                <div class="p-8 bg-white/5 rounded-2xl border border-white/10 hover:border-yellow-500 transition group">
+                    <i class="fas fa-phone text-yellow-500 mb-4 text-2xl group-hover:scale-110 transition"></i>
+                    <p class="text-sm opacity-60 mb-2 uppercase tracking-widest font-bold">Call Me</p>
+                    <p class="text-xl font-bold">+91 8089449893</p>
+                </div>
+            </div>
+            <!-- Social Icons Removed as per request -->
+        </div>
+    </section>
+
+    <footer class="py-12 border-t border-white/10 text-center text-sm text-gray-500">
+        <p>&copy; 2024 Ajmin Fayaz. All Rights Reserved.</p>
+        <p class="mt-2 tracking-wide uppercase text-[10px]">Kollam, India | Open to UAE Relocation</p>
+    </footer>
+
+    <script>
+        // Simple scroll reveal effect
+        window.addEventListener('scroll', () => {
+            const elements = document.querySelectorAll('.project-card, h3, .grid > div');
+            elements.forEach(el => {
+                const rect = el.getBoundingClientRect();
+                const isVisible = rect.top < window.innerHeight - 50;
+                if (isVisible) {
+                    el.style.opacity = '1';
+                    el.style.transform = 'translateY(0)';
+                }
+            });
+        });
+
+        // Initial state for reveal
+        document.querySelectorAll('.project-card, h3, .grid > div').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'all 0.6s ease-out';
+        });
+        
+        window.dispatchEvent(new Event('scroll'));
+    </script>
+</body>
+</html>
+
