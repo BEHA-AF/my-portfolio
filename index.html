@@ -1,266 +1,366 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ajmin Fayaz | UI/UX Designer Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap');
-        
-        :root {
-            --bg-color: #0a0a0a;
-            --accent-color: #d4af37;
-            --card-bg: #161616;
-        }
+import React, { useState, useEffect } from 'react';
+import { 
+  ArrowRight, 
+  ExternalLink, 
+  Figma, 
+  Layout, 
+  Smartphone, 
+  Mail, 
+  Linkedin,
+  Menu,
+  X,
+  MapPin,
+  Phone,
+  MonitorPlay,
+  Layers,
+  Sparkles,
+  GraduationCap,
+  Globe
+} from 'lucide-react';
 
-        body {
-            font-family: 'Inter', sans-serif;
-            background-color: var(--bg-color);
-            color: #ffffff;
-            scroll-behavior: smooth;
-        }
+// --- PERSONALIZED DATA ---
+const PROJECTS = [
+  {
+    id: 1,
+    title: 'A Unified Travel Experience',
+    category: 'Travel Booking Platform | 2026',
+    image: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80',
+    challenge: 'Solving "tab fatigue" where users switch between multiple sites to plan a trip.',
+    solution: 'A "Visual-First" approach using high-quality imagery and a unified navigation bar for Flights, Hotels, and Rentals.',
+    keyFeature: 'A transparent, linear booking flow that eliminates "sticker shock" during payment.',
+    tags: ['Travel UI', 'Visual-First', 'Booking Flow']
+  },
+  {
+    id: 2,
+    title: 'Lofio Real Estate',
+    category: 'Premium Property Marketplace | 2026',
+    image: 'https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200&q=80',
+    challenge: '"Viewing Fatigue" and the lack of trust in remote property investment.',
+    solution: 'A high-trust platform focusing on virtual tours and verified agent interactions.',
+    keyFeature: 'Granular rating systems (Comfort, Cleanliness, Facilities) and prominent Virtual Tour integration for international buyers.',
+    tags: ['Real Estate', 'Virtual Tours', 'Trust Design']
+  },
+  {
+    id: 3,
+    title: 'Upside Cinematic Experience',
+    category: 'Movie Ticketing Web App | 2025',
+    image: 'https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200&q=80',
+    challenge: 'Transactional, cluttered movie apps that hide important filters.',
+    solution: 'A premium dark-mode interface that mimics the cinema environment.',
+    keyFeature: 'A persistent "Anchor Summary" panel that updates prices in real-time as users add seats or snacks.',
+    tags: ['Dark Mode', 'Web App', 'Real-time UI']
+  },
+  {
+    id: 4,
+    title: 'Choco Box',
+    category: 'Premium Confectionery App | 2025',
+    image: 'https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=1200&q=80',
+    challenge: 'Translating the luxury, sensory experience of chocolate into a digital screen.',
+    solution: 'An earthy, "Milk Cream and Cocoa" palette with high-impact product photography.',
+    keyFeature: '"Picked For Your Taste" recommendation engine and a 3-step distraction-free checkout.',
+    tags: ['E-commerce', 'Sensory Design', 'App UI']
+  }
+];
 
-        .gradient-text {
-            background: linear-gradient(45deg, #fff, #a1a1a1);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-        }
+const SKILLS = [
+  { name: 'Figma Expertise', icon: <Figma className="w-5 h-5" /> },
+  { name: 'Auto Layout Mastery', icon: <Layout className="w-5 h-5" /> },
+  { name: 'Components & Variables', icon: <Layers className="w-5 h-5" /> },
+  { name: 'Responsive Design', icon: <Smartphone className="w-5 h-5" /> },
+  { name: 'Interactive Prototyping', icon: <MonitorPlay className="w-5 h-5" /> },
+  { name: 'Visual Design', icon: <Sparkles className="w-5 h-5" /> },
+];
 
-        .project-card {
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
+const LANGUAGES = ['English', 'German', 'Malayalam', 'Tamil', 'Hindi'];
 
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
-        }
+export default function App() {
+  const [isScrolled, setIsScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
-        .skill-tag {
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            transition: all 0.3s ease;
-        }
+  useEffect(() => {
+    const handleScroll = () => setIsScrolled(window.scrollY > 50);
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
 
-        .skill-tag:hover {
-            background: var(--accent-color);
-            color: black;
-            border-color: var(--accent-color);
-        }
+  const scrollToSection = (id) => {
+    const element = document.getElementById(id);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+      setMobileMenuOpen(false);
+    }
+  };
 
-        nav {
-            backdrop-filter: blur(10px);
-            background: rgba(10, 10, 10, 0.8);
-        }
-    </style>
-</head>
-<body class="overflow-x-hidden">
+  return (
+    <div className="min-h-screen bg-[#0a0a0c] text-zinc-100 font-sans selection:bg-indigo-500/30">
+      
+      {/* --- NAVBAR --- */}
+      <nav className={`fixed top-0 w-full z-50 transition-all duration-300 ${isScrolled ? 'bg-[#0a0a0c]/80 backdrop-blur-xl border-b border-zinc-800/50 py-4' : 'bg-transparent py-6'}`}>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex justify-between items-center">
+          <div className="text-xl font-bold tracking-tighter flex items-center gap-2">
+            AJMIN<span className="text-zinc-500">.</span>
+          </div>
+          
+          <div className="hidden md:flex items-center space-x-8 text-sm font-medium text-zinc-400">
+            <button onClick={() => scrollToSection('work')} className="hover:text-white transition-colors">Work</button>
+            <button onClick={() => scrollToSection('expertise')} className="hover:text-white transition-colors">Expertise</button>
+            <button onClick={() => scrollToSection('about')} className="hover:text-white transition-colors">About</button>
+            <button 
+              onClick={() => scrollToSection('contact')}
+              className="px-6 py-2.5 bg-zinc-100 text-zinc-950 rounded-full hover:bg-white transition-colors font-semibold"
+            >
+              Let's Talk
+            </button>
+          </div>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 border-b border-white/10">
-        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="text-xl font-bold tracking-tighter">AF<span class="text-yellow-500">.</span></div>
-            <div class="hidden md:flex space-x-8 text-sm font-medium opacity-70">
-                <a href="#home" class="hover:opacity-100 transition">Home</a>
-                <a href="#work" class="hover:opacity-100 transition">Work</a>
-                <a href="#skills" class="hover:opacity-100 transition">Expertise</a>
-                <a href="#contact" class="hover:opacity-100 transition">Contact</a>
-            </div>
-            <a href="mailto:fayazajmin@gmail.com" class="px-5 py-2 bg-white text-black text-sm font-bold rounded-full hover:bg-yellow-500 transition">Hire Me</a>
+          <button 
+            className="md:hidden p-2 text-zinc-400 hover:text-white"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          >
+            {mobileMenuOpen ? <X /> : <Menu />}
+          </button>
         </div>
-    </nav>
 
-    <!-- Hero Section -->
-    <section id="home" class="min-h-screen flex items-center pt-20">
-        <div class="max-w-7xl mx-auto px-6 w-full">
-            <div class="max-w-4xl">
-                <h2 class="text-yellow-500 font-semibold mb-6 tracking-[0.2em] uppercase text-sm">UI/UX Designer & Strategist</h2>
-                <h1 class="text-5xl md:text-8xl font-bold mb-8 leading-[1.1]">
-                    Bridging <span class="gradient-text">Luxury Sensory</span> <br> & Digital Interfaces.
-                </h1>
-                <p class="text-gray-400 text-xl md:text-2xl mb-10 max-w-2xl leading-relaxed font-light">
-                    Strategic designer with 2+ years of experience building high-fidelity products. Specializing in dark-mode aesthetics and solving complex user behaviors.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#work" class="px-10 py-5 bg-yellow-600 text-white rounded-full font-bold hover:bg-yellow-500 transition shadow-lg shadow-yellow-900/20 text-lg">View Projects</a>
-                    <a href="mailto:fayazajmin@gmail.com" class="px-10 py-5 border border-white/20 rounded-full font-bold hover:bg-white/5 transition flex items-center text-lg">
-                        <i class="fas fa-paper-plane mr-3"></i> Get in Touch
-                    </a>
-                </div>
+        {/* Mobile Nav */}
+        {mobileMenuOpen && (
+          <div className="absolute top-full left-0 w-full bg-[#0a0a0c] border-b border-zinc-800 py-6 px-6 flex flex-col space-y-4 md:hidden">
+            <button onClick={() => scrollToSection('work')} className="text-left text-lg font-medium text-zinc-300 hover:text-white">Work</button>
+            <button onClick={() => scrollToSection('expertise')} className="text-left text-lg font-medium text-zinc-300 hover:text-white">Expertise</button>
+            <button onClick={() => scrollToSection('about')} className="text-left text-lg font-medium text-zinc-300 hover:text-white">About</button>
+            <button onClick={() => scrollToSection('contact')} className="text-left text-lg font-medium text-zinc-300 hover:text-white">Contact</button>
+          </div>
+        )}
+      </nav>
+
+      {/* --- HERO SECTION --- */}
+      <section className="relative min-h-screen flex items-center pt-20 overflow-hidden">
+        {/* Cinematic Lighting Effects */}
+        <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-indigo-900/20 rounded-full blur-[150px] pointer-events-none"></div>
+        <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-emerald-900/10 rounded-full blur-[150px] pointer-events-none"></div>
+
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10 w-full">
+          <div className="max-w-4xl">
+            <div className="inline-flex items-center space-x-2 px-3 py-1.5 rounded-full border border-zinc-800/60 bg-zinc-900/30 backdrop-blur-sm mb-8">
+              <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span>
+              <span className="text-xs font-medium text-zinc-300 tracking-wider">Available for work & relocation (UAE)</span>
             </div>
-        </div>
-    </section>
-
-    <!-- Expertise Section -->
-    <section id="skills" class="py-24 bg-[#0d0d0d]">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-16">
-                <h3 class="text-3xl font-bold mb-4">Core Expertise</h3>
-                <div class="h-1 w-20 bg-yellow-500"></div>
-            </div>
-            <div class="grid md:grid-cols-3 gap-8">
-                <div class="p-8 bg-white/5 rounded-2xl border border-white/5">
-                    <i class="fas fa-layer-group text-3xl text-yellow-500 mb-6"></i>
-                    <h4 class="text-xl font-bold mb-4">Figma Mastery</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">Expertise in Auto Layout, Component Properties, and Variables for scalable design systems.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-3 py-1 rounded-full text-xs">Auto Layout</span>
-                        <span class="skill-tag px-3 py-1 rounded-full text-xs">Design Systems</span>
-                        <span class="skill-tag px-3 py-1 rounded-full text-xs">Prototyping</span>
-                    </div>
-                </div>
-                <div class="p-8 bg-white/5 rounded-2xl border border-white/5">
-                    <i class="fas fa-brain text-3xl text-yellow-500 mb-6"></i>
-                    <h4 class="text-xl font-bold mb-4">Behavioral Design</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">Solving complex user issues like 'tab fatigue' and 'viewing fatigue' through strategic UX flows.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-3 py-1 rounded-full text-xs">User Research</span>
-                        <span class="skill-tag px-3 py-1 rounded-full text-xs">Behavioral UX</span>
-                        <span class="skill-tag px-3 py-1 rounded-full text-xs">IA</span>
-                    </div>
-                </div>
-                <div class="p-8 bg-white/5 rounded-2xl border border-white/5">
-                    <i class="fas fa-palette text-3xl text-yellow-500 mb-6"></i>
-                    <h4 class="text-xl font-bold mb-4">Visual Strategy</h4>
-                    <p class="text-gray-400 text-sm leading-relaxed mb-6">Creating high-conversion dark-mode interfaces and premium sensory-driven digital experiences.</p>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="skill-tag px-3 py-1 rounded-full text-xs">Dark Mode</span>
-                        <span class="skill-tag px-3 py-1 rounded-full text-xs">Visual Design</span>
-                        <span class="skill-tag px-3 py-1 rounded-full text-xs">Branding</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Work Section -->
-    <section id="work" class="py-24">
-        <div class="max-w-7xl mx-auto px-6">
-            <div class="flex justify-between items-end mb-16">
-                <div>
-                    <h3 class="text-3xl font-bold mb-4">Featured Work</h3>
-                    <div class="h-1 w-20 bg-yellow-500"></div>
-                </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-12">
-                <!-- Project 1 -->
-                <div class="project-card group">
-                    <div class="aspect-video bg-zinc-900 rounded-2xl overflow-hidden mb-6 relative">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
-                            <div>
-                                <h4 class="text-2xl font-bold">A Unified Travel Experience</h4>
-                                <p class="text-yellow-500 font-medium">Solving "Tab Fatigue"</p>
-                            </div>
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?auto=format&fit=crop&w=800&q=80" alt="Travel App" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-60">
-                    </div>
-                    <div class="px-2">
-                        <p class="text-gray-400 mb-4">A "Visual-First" platform with a unified navigation bar for Flights, Hotels, and Rentals. Features a linear booking flow to eliminate "sticker shock".</p>
-                    </div>
-                </div>
-
-                <!-- Project 2 -->
-                <div class="project-card group">
-                    <div class="aspect-video bg-zinc-900 rounded-2xl overflow-hidden mb-6 relative">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
-                            <div>
-                                <h4 class="text-2xl font-bold">Lofio Real Estate</h4>
-                                <p class="text-yellow-500 font-medium">Immersive Discovery</p>
-                            </div>
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800&q=80" alt="Lofio Real Estate" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-60">
-                    </div>
-                    <div class="px-2">
-                        <p class="text-gray-400 mb-4">High-trust platform for international buyers. Solves "Viewing Fatigue" through virtual tour integration and granular rating systems.</p>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card group">
-                    <div class="aspect-video bg-zinc-900 rounded-2xl overflow-hidden mb-6 relative">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
-                            <div>
-                                <h4 class="text-2xl font-bold">Upside Cinematic Booking</h4>
-                                <p class="text-yellow-500 font-medium">Cinema Environment UI</p>
-                            </div>
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=800&q=80" alt="Movie App" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-60">
-                    </div>
-                    <div class="px-2">
-                        <p class="text-gray-400 mb-4">Premium dark-mode ticketing app featuring a persistent "Anchor Summary" for real-time price updates on seats and snacks.</p>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="project-card group">
-                    <div class="aspect-video bg-zinc-900 rounded-2xl overflow-hidden mb-6 relative">
-                        <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent flex items-end p-8">
-                            <div>
-                                <h4 class="text-2xl font-bold">Choco Box</h4>
-                                <p class="text-yellow-500 font-medium">Artisanal E-commerce</p>
-                            </div>
-                        </div>
-                        <img src="https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&w=800&q=80" alt="Choco Box" class="w-full h-full object-cover group-hover:scale-110 transition duration-700 opacity-60">
-                    </div>
-                    <div class="px-2">
-                        <p class="text-gray-400 mb-4">Translating luxury sensory experiences into digital. Features a Milk Cream & Cocoa palette with a 3-step distraction-free checkout.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-24 bg-[#0d0d0d]">
-        <div class="max-w-3xl mx-auto px-6 text-center">
-            <h3 class="text-4xl font-bold mb-8">Let's build something <span class="text-yellow-500">immersive.</span></h3>
-            <p class="text-gray-400 mb-12 text-lg font-light">Currently open to new opportunities and collaborations in India or UAE (open to relocation).</p>
             
-            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                <a href="mailto:fayazajmin@gmail.com" class="p-8 bg-white/5 rounded-2xl border border-white/10 hover:border-yellow-500 transition block group">
-                    <i class="fas fa-envelope text-yellow-500 mb-4 text-2xl group-hover:scale-110 transition"></i>
-                    <p class="text-sm opacity-60 mb-2 uppercase tracking-widest font-bold">Email Me</p>
-                    <p class="text-xl font-bold">fayazajmin@gmail.com</p>
+            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tighter leading-[1.05] mb-8">
+              Strategic design for <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-zinc-200 via-zinc-400 to-zinc-600">
+                complex behaviors.
+              </span>
+            </h1>
+            
+            <p className="text-lg md:text-xl text-zinc-400 max-w-2xl mb-10 leading-relaxed font-light">
+              I'm <strong className="text-zinc-200 font-medium">Ajmin Fayaz</strong>, a UI/UX Designer specializing in immersive dark-mode interfaces, high-conversion flows, and bridging the gap between luxury sensory experiences and digital interfaces.
+            </p>
+            
+            <div className="flex flex-col sm:flex-row items-center space-y-4 sm:space-y-0 sm:space-x-6">
+              <button 
+                onClick={() => scrollToSection('work')}
+                className="w-full sm:w-auto px-8 py-4 bg-zinc-100 text-zinc-950 rounded-full font-semibold hover:bg-white transition-all flex items-center justify-center space-x-2 group shadow-[0_0_40px_rgba(255,255,255,0.1)]"
+              >
+                <span>Explore Projects</span>
+                <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
+              </button>
+              <div className="flex space-x-4">
+                <a href="https://linkedin.com/in/ajmin-fayaz" target="_blank" rel="noreferrer" className="p-4 rounded-full border border-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-800 hover:border-zinc-700 transition-all">
+                  <Linkedin className="w-5 h-5" />
                 </a>
-                <div class="p-8 bg-white/5 rounded-2xl border border-white/10 hover:border-yellow-500 transition group">
-                    <i class="fas fa-phone text-yellow-500 mb-4 text-2xl group-hover:scale-110 transition"></i>
-                    <p class="text-sm opacity-60 mb-2 uppercase tracking-widest font-bold">Call Me</p>
-                    <p class="text-xl font-bold">+91 8089449893</p>
-                </div>
+                <a href="mailto:fayazajmin@gmail.com" className="p-4 rounded-full border border-zinc-800 text-zinc-400 hover:text-white hover:bg-zinc-800 hover:border-zinc-700 transition-all">
+                  <Mail className="w-5 h-5" />
+                </a>
+              </div>
             </div>
+
+            <div className="mt-16 flex items-center space-x-6 text-sm text-zinc-500 font-medium">
+              <span className="flex items-center"><MapPin className="w-4 h-4 mr-2" /> Kollam, India</span>
+              <span className="hidden sm:flex items-center"><Phone className="w-4 h-4 mr-2" /> +91 8089449893</span>
+            </div>
+          </div>
         </div>
-    </section>
+      </section>
 
-    <footer class="py-12 border-t border-white/10 text-center text-sm text-gray-500">
-        <p>&copy; 2024 Ajmin Fayaz. All Rights Reserved.</p>
-        <p class="mt-2 tracking-wide uppercase text-[10px]">Kollam, India | Open to UAE Relocation</p>
-    </footer>
+      {/* --- SELECTED WORK --- */}
+      <section id="work" className="py-24 md:py-32 relative bg-[#0d0d0f] border-t border-zinc-900">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+          <div className="mb-20">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-4">Case Studies</h2>
+            <p className="text-zinc-400 md:text-lg">Solving 'tab fatigue' and 'viewing fatigue' through design.</p>
+          </div>
 
-    <script>
-        // Simple scroll reveal effect
-        window.addEventListener('scroll', () => {
-            const elements = document.querySelectorAll('.project-card, h3, .grid > div, h1, p');
-            elements.forEach(el => {
-                const rect = el.getBoundingClientRect();
-                const isVisible = rect.top < window.innerHeight - 50;
-                if (isVisible) {
-                    el.style.opacity = '1';
-                    el.style.transform = 'translateY(0)';
-                }
-            });
-        });
+          <div className="space-y-32">
+            {PROJECTS.map((project, index) => (
+              <div key={project.id} className={`flex flex-col ${index % 2 !== 0 ? 'lg:flex-row-reverse' : 'lg:flex-row'} gap-12 lg:gap-20 items-center group`}>
+                
+                {/* Image Container */}
+                <div className="w-full lg:w-1/2 overflow-hidden rounded-3xl bg-zinc-900 border border-zinc-800/50 relative aspect-[4/3] shadow-2xl">
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0a0c] via-transparent to-transparent z-10 opacity-60"></div>
+                  <img 
+                    src={project.image} 
+                    alt={project.title} 
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-1000 ease-out opacity-90 group-hover:opacity-100"
+                  />
+                  <div className="absolute top-6 left-6 z-20">
+                     <div className="flex flex-wrap gap-2">
+                      {project.tags.map((tag) => (
+                        <span key={tag} className="px-3 py-1 text-xs font-medium bg-[#0a0a0c]/80 backdrop-blur-md border border-zinc-700/50 rounded-full text-zinc-300">
+                          {tag}
+                        </span>
+                      ))}
+                    </div>
+                  </div>
+                </div>
 
-        // Initial state for reveal
-        document.querySelectorAll('.project-card, h3, .grid > div, h1, p').forEach(el => {
-            el.style.opacity = '0';
-            el.style.transform = 'translateY(20px)';
-            el.style.transition = 'all 0.6s ease-out';
-        });
+                {/* Content */}
+                <div className="w-full lg:w-1/2 flex flex-col justify-center">
+                  <span className="text-indigo-400 font-medium tracking-wide text-sm mb-3 font-mono">{project.category}</span>
+                  <h3 className="text-3xl md:text-4xl font-bold mb-8">{project.title}</h3>
+                  
+                  <div className="space-y-6">
+                    <div className="bg-zinc-900/40 border border-zinc-800/60 rounded-2xl p-6">
+                      <h4 className="text-zinc-100 font-semibold mb-2 flex items-center"><span className="w-1.5 h-1.5 rounded-full bg-red-500 mr-2"></span>The Challenge</h4>
+                      <p className="text-zinc-400 text-sm leading-relaxed">{project.challenge}</p>
+                    </div>
+
+                    <div className="bg-zinc-900/40 border border-zinc-800/60 rounded-2xl p-6">
+                      <h4 className="text-zinc-100 font-semibold mb-2 flex items-center"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500 mr-2"></span>The Solution</h4>
+                      <p className="text-zinc-400 text-sm leading-relaxed">{project.solution}</p>
+                    </div>
+
+                    <div className="pl-4 border-l-2 border-indigo-500/50">
+                      <h4 className="text-zinc-300 font-semibold mb-1 text-sm uppercase tracking-wider">Key Feature</h4>
+                      <p className="text-zinc-400 text-sm">{project.keyFeature}</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* --- EXPERTISE & SKILLS --- */}
+      <section id="expertise" className="py-24 bg-[#0a0a0c] border-y border-zinc-900">
+        <div className="max-w-7xl mx-auto px-6 md:px-12 flex flex-col md:flex-row gap-16">
+          <div className="w-full md:w-5/12">
+            <h2 className="text-3xl md:text-5xl font-bold tracking-tight mb-8">Figma & Design Expertise</h2>
+            <p className="text-zinc-400 text-lg leading-relaxed mb-6">
+              With over 2 years of independent experience, I specialize in building high-fidelity digital products from the ground up. 
+            </p>
+            <p className="text-zinc-400 text-lg leading-relaxed">
+              My core strength lies in leveraging advanced Figma features to create scalable design systems and immersive experiences that guide users effortlessly through complex flows.
+            </p>
+          </div>
+          
+          <div className="w-full md:w-7/12">
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              {SKILLS.map((skill) => (
+                <div key={skill.name} className="flex items-center space-x-4 p-5 rounded-2xl border border-zinc-800/60 bg-zinc-900/20 hover:bg-zinc-900/60 hover:border-zinc-700 transition-all group">
+                  <div className="text-indigo-400 bg-indigo-500/10 p-3 rounded-xl group-hover:scale-110 transition-transform">
+                    {skill.icon}
+                  </div>
+                  <span className="font-medium text-zinc-200">{skill.name}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* --- ABOUT (EDUCATION & LANGUAGES) --- */}
+      <section id="about" className="py-24 bg-[#0d0d0f]">
+        <div className="max-w-7xl mx-auto px-6 md:px-12">
+           <div className="grid grid-cols-1 md:grid-cols-2 gap-16">
+              
+              {/* Education */}
+              <div>
+                 <div className="flex items-center mb-8">
+                    <GraduationCap className="w-6 h-6 text-indigo-400 mr-3" />
+                    <h2 className="text-3xl font-bold tracking-tight">Education</h2>
+                 </div>
+                 <div className="space-y-8 relative before:absolute before:inset-0 before:ml-2.5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-zinc-800 before:to-transparent">
+                    <div className="relative pl-8">
+                       <div className="absolute left-0 top-2 w-5 h-5 bg-[#0d0d0f] rounded-full border-4 border-indigo-500/30 flex items-center justify-center">
+                          <div className="w-1.5 h-1.5 bg-indigo-400 rounded-full"></div>
+                       </div>
+                       <h3 className="text-xl font-bold text-zinc-100">Bachelor of Arts in Economics</h3>
+                       <p className="text-indigo-400/80 font-mono text-sm mt-1 mb-2">Course Complete | 2021 - 2024</p>
+                    </div>
+                    <div className="relative pl-8">
+                       <div className="absolute left-0 top-2 w-5 h-5 bg-[#0d0d0f] rounded-full border-4 border-zinc-800 flex items-center justify-center">
+                          <div className="w-1.5 h-1.5 bg-zinc-500 rounded-full"></div>
+                       </div>
+                       <h3 className="text-xl font-bold text-zinc-100">Higher Secondary Humanities</h3>
+                       <p className="text-zinc-500 font-mono text-sm mt-1 mb-2">2019 - 2021</p>
+                    </div>
+                 </div>
+              </div>
+
+              {/* Languages */}
+              <div>
+                 <div className="flex items-center mb-8">
+                    <Globe className="w-6 h-6 text-indigo-400 mr-3" />
+                    <h2 className="text-3xl font-bold tracking-tight">Languages</h2>
+                 </div>
+                 <div className="flex flex-wrap gap-3">
+                    {LANGUAGES.map(lang => (
+                      <div key={lang} className="px-5 py-3 rounded-full border border-zinc-800 bg-zinc-900/50 text-zinc-300 font-medium hover:border-indigo-500/50 transition-colors">
+                        {lang}
+                      </div>
+                    ))}
+                 </div>
+              </div>
+
+           </div>
+        </div>
+      </section>
+
+      {/* --- CTA / FOOTER --- */}
+      <footer id="contact" className="pt-32 pb-12 relative overflow-hidden bg-[#0a0a0c] border-t border-zinc-900">
+        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-indigo-500/5 rounded-full blur-[120px] pointer-events-none"></div>
         
-        window.dispatchEvent(new Event('scroll'));
-    </script>
-</body>
-</html>
+        <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
+          <div className="text-center max-w-3xl mx-auto mb-24">
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tighter mb-6">Open to new <br/><span className="text-indigo-400">opportunities.</span></h2>
+            <p className="text-zinc-400 text-lg mb-10 max-w-xl mx-auto">
+              Currently based in India and open to relocation (UAE). Whether you have a project in mind or just want to chat about design, feel free to reach out.
+            </p>
+            <div className="flex flex-col sm:flex-row justify-center items-center gap-4">
+              <a 
+                href="mailto:fayazajmin@gmail.com" 
+                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-zinc-100 text-zinc-950 rounded-full font-bold hover:bg-white transition-colors text-lg"
+              >
+                <Mail className="w-5 h-5" />
+                <span>fayazajmin@gmail.com</span>
+              </a>
+              <a 
+                href="tel:+918089449893" 
+                className="w-full sm:w-auto inline-flex items-center justify-center space-x-2 px-8 py-4 bg-zinc-900 text-zinc-100 border border-zinc-800 rounded-full font-bold hover:bg-zinc-800 transition-colors text-lg"
+              >
+                <Phone className="w-5 h-5" />
+                <span>+91 8089449893</span>
+              </a>
+            </div>
+          </div>
+
+          <div className="flex flex-col md:flex-row justify-between items-center border-t border-zinc-800/60 pt-8 mt-12">
+            <div className="text-zinc-500 text-sm mb-4 md:mb-0">
+              © {new Date().getFullYear()} Ajmin Fayaz. All rights reserved.
+            </div>
+            
+            <div className="flex space-x-6">
+              <a href="https://linkedin.com/in/ajmin-fayaz" target="_blank" rel="noreferrer" className="text-zinc-500 hover:text-white transition-colors flex items-center gap-2 text-sm font-medium">
+                <Linkedin className="w-5 h-5" />
+                LinkedIn
+              </a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+  );
+}
+
 
