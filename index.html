@@ -18,20 +18,28 @@
             color: var(--neutral-dark);
             scroll-behavior: smooth;
         }
-        .serif { font-family: 'Playfair Display', serif; }
-        .card-shadow { box-shadow: 0 20px 40px rgba(16, 24, 40, 0.06); }
-        .pill-button { border-radius: 999px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
-        .project-card { border-radius: 24px; transition: transform 0.4s ease, box-shadow 0.4s ease; }
-        .project-card:hover { transform: translateY(-10px); }
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .card-shadow {
+            box-shadow: 0 20px 40px rgba(16, 24, 40, 0.08);
+        }
+        .pill-button {
+            border-radius: 999px;
+            transition: all 0.3s ease;
+        }
+        .project-card {
+            border-radius: 18px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
         .glass-nav {
-            background: rgba(244, 247, 246, 0.85);
+            background: rgba(244, 247, 246, 0.8);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(15, 17, 19, 0.05);
-        }
-        .gradient-text {
-            background: linear-gradient(90deg, #FF7A1A, #FF4D00);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
         }
     </style>
 </head>
@@ -39,158 +47,143 @@
 
     <nav class="fixed top-0 w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="text-2xl font-bold serif tracking-tight">Ajmin.</div>
+            <div class="text-xl font-bold serif tracking-tight">Ajmin Fayaz</div>
             
-            <div class="hidden md:flex space-x-10 text-[11px] font-bold uppercase tracking-[0.2em]">
-                <a href="#projects" class="hover:text-[#FF7A1A] transition-colors">Projects</a>
-                <a href="#process" class="hover:text-[#FF7A1A] transition-colors">Process</a>
-                <a href="#about" class="hover:text-[#FF7A1A] transition-colors">About</a>
-                <a href="mailto:fayazajmin@gmail.com" class="hover:text-[#FF7A1A] transition-colors">Contact</a>
+            <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
+                <a href="#" class="hover:text-[#FF7A1A]">Home</a>
+                <a href="#about" class="hover:text-[#FF7A1A]">About</a>
+                <a href="#projects" class="hover:text-[#FF7A1A]">Projects</a>
+                <a href="#process" class="hover:text-[#FF7A1A]">Process</a>
+                <a href="mailto:fayazajmin@gmail.com" class="hover:text-[#FF7A1A]">Contact</a>
             </div>
 
             <div class="flex items-center space-x-6">
-                <a href="https://linkedin.com/in/ajmin-fayaz" target="_blank" class="text-sm font-semibold hover:text-[#FF7A1A] hidden sm:block">LinkedIn</a>
-                <a href="#" class="bg-[#0F1113] text-white px-7 py-3 pill-button text-xs font-bold uppercase tracking-widest hover:bg-[#FF7A1A] hover:shadow-lg hover:shadow-orange-200">Résumé</a>
+                <a href="https://linkedin.com/in/ajmin-fayaz" target="_blank" class="text-sm font-medium hidden lg:block hover:text-[#FF7A1A]">LinkedIn</a>
+                <a href="mailto:fayazajmin@gmail.com" class="text-sm font-medium hidden lg:block hover:text-[#FF7A1A]">Email</a>
+                <a href="#" class="bg-[#0F1113] text-white px-6 py-2.5 pill-button text-sm font-semibold hover:bg-[#FF7A1A] transition-colors">Résumé (PDF)</a>
             </div>
         </div>
     </nav>
 
-    <section class="pt-48 pb-32 px-6 max-w-7xl mx-auto">
-        <div class="lg:w-4/5">
-            <span class="text-[#FF7A1A] font-bold tracking-[0.3em] uppercase text-xs mb-6 block">Product & UI/UX Designer</span>
-            <h1 class="text-6xl md:text-8xl serif leading-[1.05] mb-10">
-                Explore beautiful, usable <span class="gradient-text">digital experiences.</span>
+    <section class="pt-40 pb-24 px-6 max-w-7xl mx-auto">
+        <div class="md:w-3/4 lg:w-2/3">
+            <h1 class="text-5xl md:text-7xl serif leading-[1.1] mb-8">
+                Explore beautiful, usable <span class="text-[#FF7A1A]">digital experiences.</span>
             </h1>
-            <p class="text-xl md:text-2xl text-gray-500 mb-12 leading-relaxed max-w-3xl font-light">
-                Modern design for travel, real-estate, and premium ecommerce — <span class="text-black font-medium">visual-first, conversion focused.</span> Currently open to opportunities in the UAE.
+            <p class="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed max-w-2xl">
+                Modern UI / UX design for travel, real-estate, entertainment and premium ecommerce — visual-first, conversion focused.
             </p>
-            <div class="flex flex-col sm:flex-row gap-5">
-                <a href="#projects" class="bg-[#FF7A1A] text-white px-10 py-5 pill-button text-center font-bold text-lg shadow-xl shadow-orange-100 hover:scale-105 active:scale-95">
-                    View Case Studies →
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#projects" class="bg-[#FF7A1A] text-white px-8 py-4 pill-button text-center font-bold text-lg shadow-lg hover:opacity-90">
+                    View case studies →
                 </a>
-                <a href="#" class="bg-white border border-gray-200 px-10 py-5 pill-button text-center font-bold text-lg hover:border-[#FF7A1A] hover:bg-orange-50/30">
-                    Download CV
+                <a href="#" class="border-2 border-gray-200 px-8 py-4 pill-button text-center font-bold text-lg hover:border-[#FF7A1A]">
+                    Download résumé (PDF)
                 </a>
             </div>
         </div>
     </section>
 
-    <section class="px-6 max-w-7xl mx-auto mb-32">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-12 py-16 border-y border-gray-200/60">
+    <section id="about" class="px-6 max-w-7xl mx-auto mb-24">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
             <div>
-                <p class="text-4xl font-bold serif mb-2">02+</p>
-                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">Years Experience</p>
+                <h2 class="text-3xl serif mb-6">Strategic UI/UX Design</h2>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    I craft immersive, aesthetic-first interfaces that solve real user problems like **tab-fatigue** and **viewing fatigue**. I design clear flows, polished visual systems, and responsive components that scale seamlessly from tablet to desktop. 
+                </p>
+                <p class="mt-4 font-semibold text-[#FF7A1A]">Currently open to relocation: UAE</p>
             </div>
-            <div>
-                <p class="text-4xl font-bold serif mb-2">10+</p>
-                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">Projects Shipped</p>
-            </div>
-            <div>
-                <p class="text-4xl font-bold serif mb-2">UAE</p>
-                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">Open to Relocation</p>
-            </div>
-            <div>
-                <p class="text-4xl font-bold serif mb-2">Figma</p>
-                <p class="text-[10px] uppercase tracking-[0.2em] text-gray-400 font-bold">Expert Proficiency</p>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="p-6 bg-white card-shadow rounded-2xl">
+                    <p class="text-3xl font-bold serif mb-1">2+</p>
+                    <p class="text-xs uppercase tracking-widest text-gray-500 font-semibold">Years Experience</p>
+                </div>
+                <div class="p-6 bg-white card-shadow rounded-2xl">
+                    <p class="text-3xl font-bold serif mb-1">10+</p>
+                    <p class="text-xs uppercase tracking-widest text-gray-500 font-semibold">Projects Shipped</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="px-6 max-w-7xl mx-auto pb-40">
-        <div class="mb-20">
-            <h2 class="text-5xl serif mb-6">Selected Works</h2>
-            <div class="h-1 w-20 bg-[#FF7A1A]"></div>
+    <section id="projects" class="px-6 max-w-7xl mx-auto pb-32">
+        <div class="flex justify-between items-end mb-16">
+            <div>
+                <h2 class="text-4xl serif mb-4">Selected Works</h2>
+                <p class="text-gray-500">A curation of high-fidelity prototypes and systems.</p>
+            </div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-16">
+        <div class="grid md:grid-cols-2 gap-12">
             
-            <div class="project-card bg-white card-shadow group">
-                <div class="h-80 bg-slate-200 relative overflow-hidden rounded-t-[24px]">
-                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1436491865332-7a61a109c0f3?auto=format&fit=crop&q=80&w=1000')] bg-cover bg-center group-hover:scale-110 transition-transform duration-700"></div>
-                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
-                    <div class="absolute top-6 right-6">
-                        <span class="bg-white/90 backdrop-blur px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest">Travel</span>
+            <div class="project-card bg-white card-shadow">
+                <div class="h-64 bg-slate-200 relative group overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <span class="text-xs font-bold uppercase tracking-widest bg-[#FF7A1A] px-3 py-1 rounded-full mb-3 inline-block">2026</span>
+                        <h3 class="text-2xl font-bold serif">Lofio</h3>
                     </div>
                 </div>
-                <div class="p-10">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-3xl font-bold serif">Lofio Travel</h3>
-                        <span class="text-[#FF7A1A] font-bold text-sm">2026</span>
-                    </div>
-                    <p class="text-gray-600 mb-8 leading-relaxed">A unified travel booking platform that removes “tab-fatigue” with a single streamlined booking flow for Flights, Hotels, and Rentals.</p>
-                    <div class="flex items-center justify-between pt-6 border-t border-gray-100">
-                        <span class="text-xs font-bold text-green-600 uppercase tracking-tighter bg-green-50 px-3 py-1 rounded">+15% Booking Rate</span>
-                        <a href="https://www.figma.com/proto/lCtrm7hDTCGYcWyTcn7nSb?node-id=null" target="_blank" class="group flex items-center text-sm font-bold border-b-2 border-[#FF7A1A] pb-1">
-                            Case Study <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                        </a>
+                <div class="p-8">
+                    <p class="text-sm font-semibold text-[#FF7A1A] mb-2 uppercase tracking-wide">Product / UI UX Designer</p>
+                    <p class="text-gray-600 mb-6 line-clamp-2">A unified travel booking platform that removes “tab-fatigue” with a single streamlined booking flow (Flights • Hotels • Rentals).</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-medium text-green-600 bg-green-50 px-3 py-1 rounded-md">+15% Booking Completion</span>
+                        <a href="https://www.figma.com/proto/lCtrm7hDTCGYcWyTcn7nSb?node-id=null" target="_blank" class="text-sm font-bold border-b-2 border-[#FF7A1A]">View Case Study</a>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card bg-white card-shadow group">
-                <div class="h-80 bg-slate-300 relative overflow-hidden rounded-t-[24px]">
-                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&q=80&w=1000')] bg-cover bg-center group-hover:scale-110 transition-transform duration-700"></div>
-                    <div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
-                    <div class="absolute top-6 right-6">
-                        <span class="bg-white/90 backdrop-blur px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest">Real Estate</span>
+            <div class="project-card bg-white card-shadow">
+                <div class="h-64 bg-slate-300 relative group overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <span class="text-xs font-bold uppercase tracking-widest bg-blue-600 px-3 py-1 rounded-full mb-3 inline-block">2026</span>
+                        <h3 class="text-2xl font-bold serif">Lofio Real Estate</h3>
                     </div>
                 </div>
-                <div class="p-10">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-3xl font-bold serif">Lofio Estate</h3>
-                        <span class="text-[#FF7A1A] font-bold text-sm">2026</span>
-                    </div>
-                    <p class="text-gray-600 mb-8 leading-relaxed">Premium property marketplace for international buyers featuring virtual tours and granular trust signals for remote discovery.</p>
-                    <div class="flex items-center justify-between pt-6 border-t border-gray-100">
-                        <span class="text-xs font-bold text-blue-600 uppercase tracking-tighter bg-blue-50 px-3 py-1 rounded">Virtual Discovery</span>
-                        <a href="https://www.figma.com/proto/lCtrm7hDTCGYcWyTcn7nSb?node-id=116-60" target="_blank" class="group flex items-center text-sm font-bold border-b-2 border-[#FF7A1A] pb-1">
-                            Case Study <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                        </a>
+                <div class="p-8">
+                    <p class="text-sm font-semibold text-[#FF7A1A] mb-2 uppercase tracking-wide">Lead UI/UX</p>
+                    <p class="text-gray-600 mb-6 line-clamp-2">Premium property marketplace for international buyers with embedded virtual tours and granular trust signals.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-md">Virtual Discovery Engine</span>
+                        <a href="https://www.figma.com/proto/lCtrm7hDTCGYcWyTcn7nSb?node-id=116-60" target="_blank" class="text-sm font-bold border-b-2 border-[#FF7A1A]">View Case Study</a>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card bg-[#0F1113] text-white shadow-2xl group">
-                <div class="h-80 bg-zinc-800 relative overflow-hidden rounded-t-[24px]">
-                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&q=80&w=1000')] bg-cover bg-center group-hover:scale-110 transition-transform duration-700"></div>
-                    <div class="absolute inset-0 bg-black/40 group-hover:bg-black/20 transition-colors"></div>
-                    <div class="absolute top-6 right-6">
-                        <span class="bg-white/10 backdrop-blur px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest">Entertainment</span>
+            <div class="project-card bg-[#0F1113] text-white shadow-2xl">
+                <div class="h-64 bg-zinc-800 relative group overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6">
+                        <span class="text-xs font-bold uppercase tracking-widest bg-red-600 px-3 py-1 rounded-full mb-3 inline-block">2025</span>
+                        <h3 class="text-2xl font-bold serif">Upside</h3>
                     </div>
                 </div>
-                <div class="p-10">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-3xl font-bold serif">Upside Cinema</h3>
-                        <span class="text-[#FF7A1A] font-bold text-sm">2025</span>
-                    </div>
-                    <p class="text-zinc-400 mb-8 leading-relaxed">A dark-mode cinematic experience featuring a persistent anchor summary and real-time seat filtering for frictionless ticketing.</p>
-                    <div class="flex items-center justify-between pt-6 border-t border-zinc-800">
-                        <span class="text-xs font-bold text-zinc-300 uppercase tracking-tighter bg-zinc-800 px-3 py-1 rounded">Anchor Summary</span>
-                        <a href="https://www.figma.com/proto/V0Vh28V2yuY1wijbCg7IpI?node-id=400-1492" target="_blank" class="group flex items-center text-sm font-bold border-b-2 border-[#FF7A1A] pb-1">
-                            Case Study <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                        </a>
+                <div class="p-8">
+                    <p class="text-sm font-semibold text-[#FF7A1A] mb-2 uppercase tracking-wide">UI/UX Designer</p>
+                    <p class="text-zinc-400 mb-6 line-clamp-2">Dark-mode cinematic ticketing experience featuring a persistent anchor summary for cart items and real-time seat filtering.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-medium text-zinc-300 bg-zinc-800 px-3 py-1 rounded-md">Anchor Summary Panel</span>
+                        <a href="https://www.figma.com/proto/V0Vh28V2yuY1wijbCg7IpI?node-id=400-1492" target="_blank" class="text-sm font-bold border-b-2 border-[#FF7A1A]">View Case Study</a>
                     </div>
                 </div>
             </div>
 
-            <div class="project-card bg-white card-shadow group">
-                <div class="h-80 bg-orange-50 relative overflow-hidden rounded-t-[24px]">
-                    <div class="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1549007994-cb92caebd54b?auto=format&fit=crop&q=80&w=1000')] bg-cover bg-center group-hover:scale-110 transition-transform duration-700"></div>
-                    <div class="absolute top-6 right-6">
-                        <span class="bg-white/90 backdrop-blur px-4 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest">E-commerce</span>
+            <div class="project-card bg-white card-shadow">
+                <div class="h-64 bg-orange-50 relative group overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <span class="text-xs font-bold uppercase tracking-widest bg-amber-800 px-3 py-1 rounded-full mb-3 inline-block">2025</span>
+                        <h3 class="text-2xl font-bold serif">Choco Box</h3>
                     </div>
                 </div>
-                <div class="p-10">
-                    <div class="flex justify-between items-start mb-4">
-                        <h3 class="text-3xl font-bold serif">Choco Box</h3>
-                        <span class="text-[#FF7A1A] font-bold text-sm">2025</span>
-                    </div>
-                    <p class="text-gray-600 mb-8 leading-relaxed">Artisanal chocolate e-com that translates sensory luxury through an earthy palette and a high-conversion 3-step checkout.</p>
-                    <div class="flex items-center justify-between pt-6 border-t border-gray-100">
-                        <span class="text-xs font-bold text-amber-700 uppercase tracking-tighter bg-amber-50 px-3 py-1 rounded">3-Step Flow</span>
-                        <a href="https://www.figma.com/proto/cI4I8nppkpMtQE1R9k254t?node-id=66-6" target="_blank" class="group flex items-center text-sm font-bold border-b-2 border-[#FF7A1A] pb-1">
-                            Case Study <span class="ml-2 group-hover:translate-x-1 transition-transform">→</span>
-                        </a>
+                <div class="p-8">
+                    <p class="text-sm font-semibold text-[#FF7A1A] mb-2 uppercase tracking-wide">Product Designer</p>
+                    <p class="text-gray-600 mb-6 line-clamp-2">Artisanal chocolate ecommerce with a sensory earthy palette and a high-conversion 3-step checkout process.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-medium text-amber-700 bg-amber-50 px-3 py-1 rounded-md">Luxury E-com Flow</span>
+                        <a href="https://www.figma.com/proto/cI4I8nppkpMtQE1R9k254t?node-id=66-6" target="_blank" class="text-sm font-bold border-b-2 border-[#FF7A1A]">View Case Study</a>
                     </div>
                 </div>
             </div>
@@ -198,46 +191,36 @@
         </div>
     </section>
 
-    <section id="process" class="bg-white py-32 px-6 overflow-hidden">
+    <section id="process" class="py-24 bg-white border-y border-gray-100 px-6">
         <div class="max-w-7xl mx-auto">
-            <h2 class="text-5xl serif mb-20 text-center italic">My Creative Process</h2>
-            <div class="grid grid-cols-1 md:grid-cols-4 gap-8 relative">
-                <div class="hidden md:block absolute top-1/4 left-0 w-full h-[1px] bg-gray-100 -z-10"></div>
-                
-                <div class="bg-[#F4F7F6] p-8 rounded-3xl">
-                    <span class="text-4xl mb-6 block">01</span>
-                    <h4 class="font-bold mb-3 uppercase tracking-widest text-xs">Research</h4>
-                    <p class="text-sm text-gray-500">Uncovering user pain points like "tab-fatigue" and market constraints.</p>
+            <h2 class="text-4xl serif mb-12">My Approach</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <h4 class="font-bold text-[#FF7A1A] mb-2">01. Research & Architecture</h4>
+                    <p class="text-gray-600 text-sm">Defining user pain points and mapping information architecture to eliminate friction.</p>
                 </div>
-                <div class="bg-[#F4F7F6] p-8 rounded-3xl">
-                    <span class="text-4xl mb-6 block">02</span>
-                    <h4 class="font-bold mb-3 uppercase tracking-widest text-xs">Strategy</h4>
-                    <p class="text-sm text-gray-500">Defining IA, user flows, and clear conversion goals for the product.</p>
+                <div>
+                    <h4 class="font-bold text-[#FF7A1A] mb-2">02. UI & Prototyping</h4>
+                    <p class="text-gray-600 text-sm">Building visual systems and high-fidelity prototypes to test conversion-centric patterns.</p>
                 </div>
-                <div class="bg-[#F4F7F6] p-8 rounded-3xl">
-                    <span class="text-4xl mb-6 block">03</span>
-                    <h4 class="font-bold mb-3 uppercase tracking-widest text-xs">Design</h4>
-                    <p class="text-sm text-gray-500">High-fidelity UI systems with polished components and earthy palettes.</p>
-                </div>
-                <div class="bg-[#F4F7F6] p-8 rounded-3xl">
-                    <span class="text-4xl mb-6 block">04</span>
-                    <h4 class="font-bold mb-3 uppercase tracking-widest text-xs">Validate</h4>
-                    <p class="text-sm text-gray-500">Interactive Figma prototyping and stakeholder feedback loops.</p>
+                <div>
+                    <h4 class="font-bold text-[#FF7A1A] mb-2">03. Iteration & Handoff</h4>
+                    <p class="text-gray-600 text-sm">Testing metrics, refining flows, and delivering clean, responsive design specs.</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section class="bg-[#0F1113] py-40 px-6">
+    <section id="contact" class="bg-[#0F1113] py-32 px-6">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-white text-6xl md:text-7xl serif mb-16 leading-tight">Let’s design your next product <span class="italic opacity-50">together.</span></h2>
-            <div class="flex flex-col items-center space-y-8">
-                <a href="mailto:fayazajmin@gmail.com" class="text-white text-3xl md:text-4xl font-light hover:text-[#FF7A1A] transition-colors border-b border-zinc-700 pb-2">
+            <h2 class="text-white text-5xl md:text-6xl serif mb-12">Let’s design your next product together.</h2>
+            <div class="flex flex-col items-center space-y-6">
+                <a href="mailto:fayazajmin@gmail.com" class="text-white text-2xl md:text-3xl font-light hover:text-[#FF7A1A] transition-colors">
                     fayazajmin@gmail.com
                 </a>
-                <div class="flex flex-col md:flex-row items-center gap-8 pt-10">
-                    <p class="text-zinc-500 font-bold tracking-[0.3em] uppercase text-sm">+91 8089449893</p>
-                    <a href="mailto:fayazajmin@gmail.com" class="bg-[#FF7A1A] text-white px-14 py-6 pill-button font-bold text-xl hover:scale-110 transition-transform inline-block">
+                <p class="text-zinc-500 font-medium tracking-widest uppercase">+91 8089449893</p>
+                <div class="pt-8">
+                    <a href="mailto:fayazajmin@gmail.com" class="bg-white text-[#0F1113] px-12 py-5 pill-button font-bold text-xl hover:bg-[#FF7A1A] hover:text-white inline-block">
                         Work with me
                     </a>
                 </div>
@@ -245,8 +228,8 @@
         </div>
     </section>
 
-    <footer class="py-12 px-6 text-center text-zinc-500 text-[10px] font-bold uppercase tracking-[0.3em] bg-[#0F1113] border-t border-zinc-900">
-        <p>&copy; 2026 Ajmin Fayaz • Designed for beautiful digital experiences</p>
+    <footer class="py-12 px-6 text-center text-zinc-400 text-sm border-t border-zinc-800 bg-[#0F1113]">
+        <p>&copy; 2026 Ajmin Fayaz. Designed for beautiful digital experiences.</p>
     </footer>
 
 </body>
