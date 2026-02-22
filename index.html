@@ -17,115 +17,195 @@
             background-color: var(--neutral-light);
             color: var(--neutral-dark);
             scroll-behavior: smooth;
-            -webkit-font-smoothing: antialiased;
         }
-        .serif { font-family: 'Playfair Display', serif; }
-        .card-shadow { box-shadow: 0 20px 40px rgba(16, 24, 40, 0.06); }
-        .pill-button { border-radius: 999px; transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); }
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+        .card-shadow {
+            box-shadow: 0 20px 40px rgba(16, 24, 40, 0.08);
+        }
+        .pill-button {
+            border-radius: 999px;
+            transition: all 0.3s ease;
+        }
+        .project-card {
+            border-radius: 18px;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover {
+            transform: translateY(-8px);
+        }
         .glass-nav {
-            background: rgba(244, 247, 246, 0.85);
+            background: rgba(244, 247, 246, 0.8);
             backdrop-filter: blur(12px);
             border-bottom: 1px solid rgba(15, 17, 19, 0.05);
         }
-        .project-card {
-            border-radius: 20px;
-            overflow: hidden;
-            transition: all 0.4s ease;
-            border: 1px solid rgba(0,0,0,0.03);
-        }
-        .project-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 30px 60px rgba(16, 24, 40, 0.12);
-        }
     </style>
 </head>
-<body>
+<body class="antialiased">
 
     <nav class="fixed top-0 w-full z-50 glass-nav">
         <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
-            <div class="text-xl font-bold serif">Ajmin Fayaz</div>
+            <div class="text-xl font-bold serif tracking-tight">Ajmin Fayaz</div>
             
             <div class="hidden md:flex space-x-8 text-sm font-medium uppercase tracking-widest">
-                <a href="#" class="hover:text-[#FF7A1A] transition-colors">Home</a>
-                <a href="#about" class="hover:text-[#FF7A1A] transition-colors">About</a>
-                <a href="#projects" class="hover:text-[#FF7A1A] transition-colors">Projects</a>
+                <a href="#" class="hover:text-[#FF7A1A]">Home</a>
+                <a href="#about" class="hover:text-[#FF7A1A]">About</a>
+                <a href="#projects" class="hover:text-[#FF7A1A]">Projects</a>
+                <a href="#process" class="hover:text-[#FF7A1A]">Process</a>
+                <a href="mailto:fayazajmin@gmail.com" class="hover:text-[#FF7A1A]">Contact</a>
             </div>
 
-            <div class="flex items-center space-x-4">
-                <a href="Ajmin_Fayaz_Resume.pdf" target="_blank" class="bg-[#0F1113] text-white px-5 py-2 pill-button text-xs md:text-sm font-semibold hover:bg-[#FF7A1A]">
-                    Résumé PDF
-                </a>
+            <div class="flex items-center space-x-6">
+                <a href="https://linkedin.com/in/ajmin-fayaz" target="_blank" class="text-sm font-medium hidden lg:block hover:text-[#FF7A1A]">LinkedIn</a>
+                <a href="mailto:fayazajmin@gmail.com" class="text-sm font-medium hidden lg:block hover:text-[#FF7A1A]">Email</a>
+                <a href="#" class="bg-[#0F1113] text-white px-6 py-2.5 pill-button text-sm font-semibold hover:bg-[#FF7A1A] transition-colors">Résumé (PDF)</a>
             </div>
         </div>
     </nav>
 
-    <section class="pt-44 pb-20 px-6 max-w-7xl mx-auto">
-        <div class="lg:w-4/5">
-            <h1 class="text-5xl md:text-8xl serif leading-[1.05] mb-8 tracking-tight">
-                Crafting <span class="text-[#FF7A1A]">intuitive</span> digital products.
+    <section class="pt-40 pb-24 px-6 max-w-7xl mx-auto">
+        <div class="md:w-3/4 lg:w-2/3">
+            <h1 class="text-5xl md:text-7xl serif leading-[1.1] mb-8">
+                Explore beautiful, usable <span class="text-[#FF7A1A]">digital experiences.</span>
             </h1>
-            <p class="text-xl md:text-2xl text-gray-500 mb-12 leading-relaxed max-w-2xl">
-                Specializing in visual-first UI/UX design for Travel, E-commerce, and Real Estate. 
+            <p class="text-lg md:text-xl text-gray-600 mb-10 leading-relaxed max-w-2xl">
+                Modern UI / UX design for travel, real-estate, entertainment and premium ecommerce — visual-first, conversion focused.
             </p>
-            <div class="flex flex-wrap gap-5">
-                <a href="#projects" class="bg-[#FF7A1A] text-white px-10 py-5 pill-button font-bold text-lg shadow-xl shadow-orange-200 hover:scale-105 active:scale-95">
-                    View My Work
+            <div class="flex flex-col sm:flex-row gap-4">
+                <a href="#projects" class="bg-[#FF7A1A] text-white px-8 py-4 pill-button text-center font-bold text-lg shadow-lg hover:opacity-90">
+                    View case studies →
                 </a>
-                <a href="Ajmin_Fayaz_Resume.pdf" download class="border-2 border-gray-300 px-10 py-5 pill-button font-bold text-lg hover:border-[#FF7A1A] hover:text-[#FF7A1A]">
-                    Download CV
+                <a href="#" class="border-2 border-gray-200 px-8 py-4 pill-button text-center font-bold text-lg hover:border-[#FF7A1A]">
+                    Download résumé (PDF)
                 </a>
             </div>
         </div>
     </section>
 
-    <section id="about" class="px-6 max-w-7xl mx-auto py-20 border-t border-gray-200">
-        <div class="grid md:grid-cols-3 gap-12 items-start">
-            <div class="md:col-span-2">
-                <h2 class="text-3xl serif mb-6 italic">The Philosophy</h2>
-                <p class="text-xl text-gray-600 leading-relaxed">
-                    I focus on eliminating **"tab-fatigue"** by creating streamlined user flows. My designs aren't just pretty—they are engineered to increase conversion and user retention through high-fidelity prototyping and data-driven iteration.
+    <section id="about" class="px-6 max-w-7xl mx-auto mb-24">
+        <div class="grid md:grid-cols-2 gap-12 items-center">
+            <div>
+                <h2 class="text-3xl serif mb-6">Strategic UI/UX Design</h2>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    I craft immersive, aesthetic-first interfaces that solve real user problems like **tab-fatigue** and **viewing fatigue**. I design clear flows, polished visual systems, and responsive components that scale seamlessly from tablet to desktop. 
                 </p>
+                <p class="mt-4 font-semibold text-[#FF7A1A]">Currently open to relocation: UAE</p>
             </div>
-            <div class="space-y-6">
-                <div class="p-8 bg-white card-shadow rounded-3xl border border-orange-50">
-                    <p class="text-4xl font-bold serif text-[#FF7A1A]">2+</p>
-                    <p class="text-xs uppercase tracking-widest font-black text-gray-400">Years Experience</p>
+            <div class="grid grid-cols-2 gap-4">
+                <div class="p-6 bg-white card-shadow rounded-2xl">
+                    <p class="text-3xl font-bold serif mb-1">2+</p>
+                    <p class="text-xs uppercase tracking-widest text-gray-500 font-semibold">Years Experience</p>
                 </div>
-                <div class="p-8 bg-[#0F1113] text-white rounded-3xl">
-                    <p class="text-sm font-medium mb-2 opacity-70 italic">Current Status:</p>
-                    <p class="text-lg font-bold">Open to Relocation <br><span class="text-[#FF7A1A]">UAE / Global</span></p>
+                <div class="p-6 bg-white card-shadow rounded-2xl">
+                    <p class="text-3xl font-bold serif mb-1">10+</p>
+                    <p class="text-xs uppercase tracking-widest text-gray-500 font-semibold">Projects Shipped</p>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="projects" class="px-6 max-w-7xl mx-auto py-24">
-        <h2 class="text-4xl serif mb-16">Featured Case Studies</h2>
-        
-        <div class="grid md:grid-cols-2 gap-16">
-            <div class="project-card bg-white">
-                <div class="h-80 bg-gray-100 flex items-center justify-center overflow-hidden">
-                    <div class="text-gray-300 serif text-6xl italic opacity-20">LOFIO</div>
+    <section id="projects" class="px-6 max-w-7xl mx-auto pb-32">
+        <div class="flex justify-between items-end mb-16">
+            <div>
+                <h2 class="text-4xl serif mb-4">Selected Works</h2>
+                <p class="text-gray-500">A curation of high-fidelity prototypes and systems.</p>
+            </div>
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12">
+            
+            <div class="project-card bg-white card-shadow">
+                <div class="h-64 bg-slate-200 relative group overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <span class="text-xs font-bold uppercase tracking-widest bg-[#FF7A1A] px-3 py-1 rounded-full mb-3 inline-block">2026</span>
+                        <h3 class="text-2xl font-bold serif">Lofio</h3>
+                    </div>
                 </div>
-                <div class="p-10">
-                    <h3 class="text-3xl font-bold serif mb-3">Lofio Travel</h3>
-                    <p class="text-gray-500 mb-8 leading-relaxed">Solving the complexity of multi-platform travel booking with a unified, 3-step interface.</p>
-                    <a href="https://www.figma.com/proto/lCtrm7hDTCGYcWyTcn7nSb?node-id=null" target="_blank" class="inline-block font-bold text-[#FF7A1A] border-b-2 border-orange-100 hover:border-[#FF7A1A] transition-all">
-                        Explore Case Study →
-                    </a>
+                <div class="p-8">
+                    <p class="text-sm font-semibold text-[#FF7A1A] mb-2 uppercase tracking-wide">Product / UI UX Designer</p>
+                    <p class="text-gray-600 mb-6 line-clamp-2">A unified travel booking platform that removes “tab-fatigue” with a single streamlined booking flow (Flights • Hotels • Rentals).</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-medium text-green-600 bg-green-50 px-3 py-1 rounded-md">+15% Booking Completion</span>
+                        <a href="https://www.figma.com/proto/lCtrm7hDTCGYcWyTcn7nSb?node-id=null" target="_blank" class="text-sm font-bold border-b-2 border-[#FF7A1A]">View Case Study</a>
+                    </div>
                 </div>
             </div>
 
-            <div class="project-card bg-white">
-                <div class="h-80 bg-gray-200 flex items-center justify-center overflow-hidden">
-                    <div class="text-gray-400 serif text-6xl italic opacity-20">UPSIDE</div>
+            <div class="project-card bg-white card-shadow">
+                <div class="h-64 bg-slate-300 relative group overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <span class="text-xs font-bold uppercase tracking-widest bg-blue-600 px-3 py-1 rounded-full mb-3 inline-block">2026</span>
+                        <h3 class="text-2xl font-bold serif">Lofio Real Estate</h3>
+                    </div>
                 </div>
-                <div class="p-10">
-                    <h3 class="text-3xl font-bold serif mb-3">Upside Cinema</h3>
-                    <p class="text-gray-500 mb-8 leading-relaxed">A cinematic dark-mode experience focused on real-time seat selection and anchor navigation.</p>
-                    <a href="https://www.figma.com/proto/V0Vh28V2yuY1wijbCg7IpI?node-id=400-1492" target="_blank" class="inline-block font-bold text-[#FF7A1A] border-b-2 border-orange-100 hover:border-[#FF7A1A] transition-all">
-                        Explore Case Study →
-                    </a>
+                <div class="p-8">
+                    <p class="text-sm font-semibold text-[#FF7A1A] mb-2 uppercase tracking-wide">Lead UI/UX</p>
+                    <p class="text-gray-600 mb-6 line-clamp-2">Premium property marketplace for international buyers with embedded virtual tours and granular trust signals.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-medium text-blue-600 bg-blue-50 px-3 py-1 rounded-md">Virtual Discovery Engine</span>
+                        <a href="https://www.figma.com/proto/lCtrm7hDTCGYcWyTcn7nSb?node-id=116-60" target="_blank" class="text-sm font-bold border-b-2 border-[#FF7A1A]">View Case Study</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card bg-[#0F1113] text-white shadow-2xl">
+                <div class="h-64 bg-zinc-800 relative group overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6">
+                        <span class="text-xs font-bold uppercase tracking-widest bg-red-600 px-3 py-1 rounded-full mb-3 inline-block">2025</span>
+                        <h3 class="text-2xl font-bold serif">Upside</h3>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <p class="text-sm font-semibold text-[#FF7A1A] mb-2 uppercase tracking-wide">UI/UX Designer</p>
+                    <p class="text-zinc-400 mb-6 line-clamp-2">Dark-mode cinematic ticketing experience featuring a persistent anchor summary for cart items and real-time seat filtering.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-medium text-zinc-300 bg-zinc-800 px-3 py-1 rounded-md">Anchor Summary Panel</span>
+                        <a href="https://www.figma.com/proto/V0Vh28V2yuY1wijbCg7IpI?node-id=400-1492" target="_blank" class="text-sm font-bold border-b-2 border-[#FF7A1A]">View Case Study</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="project-card bg-white card-shadow">
+                <div class="h-64 bg-orange-50 relative group overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+                    <div class="absolute bottom-6 left-6 text-white">
+                        <span class="text-xs font-bold uppercase tracking-widest bg-amber-800 px-3 py-1 rounded-full mb-3 inline-block">2025</span>
+                        <h3 class="text-2xl font-bold serif">Choco Box</h3>
+                    </div>
+                </div>
+                <div class="p-8">
+                    <p class="text-sm font-semibold text-[#FF7A1A] mb-2 uppercase tracking-wide">Product Designer</p>
+                    <p class="text-gray-600 mb-6 line-clamp-2">Artisanal chocolate ecommerce with a sensory earthy palette and a high-conversion 3-step checkout process.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs font-medium text-amber-700 bg-amber-50 px-3 py-1 rounded-md">Luxury E-com Flow</span>
+                        <a href="https://www.figma.com/proto/cI4I8nppkpMtQE1R9k254t?node-id=66-6" target="_blank" class="text-sm font-bold border-b-2 border-[#FF7A1A]">View Case Study</a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <section id="process" class="py-24 bg-white border-y border-gray-100 px-6">
+        <div class="max-w-7xl mx-auto">
+            <h2 class="text-4xl serif mb-12">My Approach</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div>
+                    <h4 class="font-bold text-[#FF7A1A] mb-2">01. Research & Architecture</h4>
+                    <p class="text-gray-600 text-sm">Defining user pain points and mapping information architecture to eliminate friction.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-[#FF7A1A] mb-2">02. UI & Prototyping</h4>
+                    <p class="text-gray-600 text-sm">Building visual systems and high-fidelity prototypes to test conversion-centric patterns.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold text-[#FF7A1A] mb-2">03. Iteration & Handoff</h4>
+                    <p class="text-gray-600 text-sm">Testing metrics, refining flows, and delivering clean, responsive design specs.</p>
                 </div>
             </div>
         </div>
@@ -133,21 +213,23 @@
 
     <section id="contact" class="bg-[#0F1113] py-32 px-6">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-white text-5xl md:text-7xl serif mb-10">Ready to talk?</h2>
-            <a href="mailto:fayazajmin@gmail.com" class="text-[#FF7A1A] text-2xl md:text-4xl font-medium hover:opacity-80 transition-opacity">
-                fayazajmin@gmail.com
-            </a>
-            <p class="text-gray-500 mt-6 tracking-widest">+91 8089449893</p>
-            <div class="mt-16">
-                <a href="Ajmin_Fayaz_Resume.pdf" class="bg-white text-black px-12 py-5 pill-button font-bold text-lg hover:bg-[#FF7A1A] hover:text-white inline-block transition-all">
-                    View Full Résumé
+            <h2 class="text-white text-5xl md:text-6xl serif mb-12">Let’s design your next product together.</h2>
+            <div class="flex flex-col items-center space-y-6">
+                <a href="mailto:fayazajmin@gmail.com" class="text-white text-2xl md:text-3xl font-light hover:text-[#FF7A1A] transition-colors">
+                    fayazajmin@gmail.com
                 </a>
+                <p class="text-zinc-500 font-medium tracking-widest uppercase">+91 8089449893</p>
+                <div class="pt-8">
+                    <a href="mailto:fayazajmin@gmail.com" class="bg-white text-[#0F1113] px-12 py-5 pill-button font-bold text-xl hover:bg-[#FF7A1A] hover:text-white inline-block">
+                        Work with me
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    <footer class="py-10 text-center text-gray-600 text-xs tracking-widest uppercase">
-        &copy; 2026 Ajmin Fayaz &mdash; All Rights Reserved
+    <footer class="py-12 px-6 text-center text-zinc-400 text-sm border-t border-zinc-800 bg-[#0F1113]">
+        <p>&copy; 2026 Ajmin Fayaz. Designed for beautiful digital experiences.</p>
     </footer>
 
 </body>
